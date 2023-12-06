@@ -1,14 +1,30 @@
+:root {
+  --primary-base: hsl(212, 88%, 62%);
+  --primary-light: hsl(212, 100%, 86%);
+  --neutral-base: hsl(211, 12%, 43%);
+  --neutral-lighter: hsl(211, 16%, 82%);
+  --neutral-light: hsl(214, 15%, 91%);
+}
+
 .btn {
   display: inline-block;
   font-size: 1.25rem;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
   border: none;
-  color: white;
-  background-color: hsl(212, 88%, 62%);
+  background-color: var(--neutral-lighter);
   box-shadow: 0 1px hsla(0, 0%, 0%, .2);
 
   &:active {
-    background-color: hsl(212, 100%, 86%);
+    background-color: var(--neutral-light);
   }
+}
+
+.primary {
+  color: white;
+  background-color: var(--primary-base);
+  &:active {
+    background-color: var(--primary-light);
+  }
+
 }

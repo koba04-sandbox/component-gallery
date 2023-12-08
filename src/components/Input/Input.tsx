@@ -1,9 +1,10 @@
-import { useId } from "react";
+import { forwardRef, useId } from "react";
 import { css } from "../../styled-system/css";
 import { SystemStyleObject } from "../../styled-system/types";
 
-const style: SystemStyleObject = {
+const inputStyle: SystemStyleObject = {
   display: "inline-block",
+  padding: "8px",
   border: "solid 1px",
   borderColor: "neutralLight"
 };
@@ -43,12 +44,12 @@ const wrapperStyle: SystemStyleObject = {
 }
 
 
-export const Input = ({ label, placeholder,labelPosition = "on" }: Props) => {
+export const Input = forwardRef<HTMLInputElement>(({ label, placeholder,labelPosition = "on" }: Props, ref) => {
   const id = useId();
   return (
     <span className={css(wrapperStyle)}>
       {label && <label htmlFor={id} className={css(labelStyle, labelPosition === "in" && inLabelStyle, labelPosition === "overlap" && overlapLabelStyle)}>{label}</label>}
-      <input type="text" id={id} className={css(style, labelPosition === "in" && { paddingTop: "2rem" }, labelPosition === "overlap" && { paddingTop: "1.5rem"} )} placeholder={placeholder} />
+      <input type="text" ref={ref} id={id} className={css(inputStyle, labelPosition === "in" && { paddingTop: "2rem" }, labelPosition === "overlap" && { paddingTop: "1.5rem"} )} placeholder={placeholder} />
     </span>
   )
-}
+})

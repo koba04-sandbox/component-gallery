@@ -6,12 +6,13 @@ type Props = {
   type?: "primary" | "normal"
   onClick?: MouseEventHandler<HTMLButtonElement>
   label: string
+  size?: 'large' | 'small'
 }
 
-export const Button = ({ onClick, label, type = "normal" }: Props) => {
+export const Button = ({ onClick, label, type = "normal", size = "large" }: Props) => {
   return (
     <button
-      className={css(baseStyle, type === "primary" ? primaryStyle : normalStyle)}
+      className={css(baseStyle, type === "primary" ? primaryStyle : normalStyle, size === "small" && smallStyle)}
       onClick={onClick}
       >
         {label}
@@ -37,3 +38,7 @@ const primaryStyle: SystemStyleObject = {
 const normalStyle: SystemStyleObject = {
   bg: { base: "neutralLighter", _hover: "neutralLight" }
 };
+
+const smallStyle: SystemStyleObject = {
+  padding: "4px 8px"
+}

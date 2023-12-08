@@ -11,7 +11,7 @@ type Props = {
 export const Button = ({ onClick, label, type = "normal" }: Props) => {
   return (
     <button
-      className={css(type === "primary" ? primaryStyle : normalStyle)}
+      className={css(baseStyle, type === "primary" ? primaryStyle : normalStyle)}
       onClick={onClick}
       >
         {label}
@@ -29,13 +29,11 @@ const baseStyle: SystemStyleObject = {
 };
 
 const primaryStyle: SystemStyleObject = {
-  ...baseStyle,
   color: "white",
   bg: { base: "primary", _hover: "primaryLight" }
 
 };
 
 const normalStyle: SystemStyleObject = {
-  ...baseStyle,
   bg: { base: "neutralLighter", _hover: "neutralLight" }
 };

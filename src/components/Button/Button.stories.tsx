@@ -12,6 +12,7 @@ const meta = {
   tags: ['autodocs'],
 
   argTypes: {
+    onClick: { action: 'clicked' }
   },
 } satisfies Meta<typeof Button>;
 
@@ -21,13 +22,13 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Normal: Story = {
   args: {
-    children: 'click'
+    label: 'click'
   },
 };
 
 export const Primary: Story = {
   args: {
     type: "primary",
-    children: 'click'
+    label: 'click'
   },
 };

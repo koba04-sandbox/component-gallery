@@ -4,7 +4,6 @@ import { SystemStyleObject } from "../../styled-system/types";
 
 const style: SystemStyleObject = {
   display: "inline-block",
-  padding: "8px",
   border: "solid 1px",
   borderColor: "neutralLight"
 };

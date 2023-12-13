@@ -14,9 +14,7 @@ export const Breadcrumbs = ({ items }: Props) => {
       {items.map(({ link, text}, i) => {
         const active = i === items.length - 1;
         return (
-          <li key={text} className={css(itemStyle, active && { backgroundColor: "neutralLight", _after: {
-            display: "none"
-          } })}>
+          <li key={text} className={css(itemStyle, active && { backgroundColor: "neutralLight" })}>
             {active ?
               <span className={css(textSytle)} aria-current="page">{text}</span> :
               (

@@ -32,7 +32,7 @@ export const Normal: Story = {
       },
       {
         link: "https://example.com",
-        text: "",
+        text: "Item",
       },
     ],
   },

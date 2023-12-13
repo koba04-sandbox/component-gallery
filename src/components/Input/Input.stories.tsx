@@ -42,6 +42,23 @@ export const WithLabel: Story = {
   },
 };
 
+export const WithError: Story = {
+  args: {
+    ...defaultArgs,
+    label: "username",
+    error: "username is required"
+  }
+}
+
+export const WithErrorInline: Story = {
+  args: {
+    ...defaultArgs,
+    label: "username",
+    error: "username is required",
+    errorPosition: "inline"
+  }
+}
+
 export const InLabel: Story = {
   args: {
     ...defaultArgs,

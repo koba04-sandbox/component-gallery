@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { userEvent, within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 import { Input } from './index'
 
@@ -72,5 +74,20 @@ export const OverlapLabel: Story = {
     ...defaultArgs,
     label: "username",
     labelPosition: "overlap"
+  }
+}
+
+export const FilledInput: Story = {
+  args: {
+    ...defaultArgs,
+    label: "username",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText<HTMLInputElement>("username");
+
+    await userEvent.type(input, "Hello", { delay: 100 });
+
+    expect(input.value).toBe("Hello");
   }
 }
